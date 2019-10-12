@@ -1,9 +1,5 @@
 FROM debian:latest
 
-RUN sed -i 's/deb.debian.org/mirrors.163.com/g' /etc/apt/sources.list
-RUN sed -i 's/security.debian.org/mirrors.163.com/g' /etc/apt/sources.list
-RUN apt-get update
-
 ARG QT_VERSION=5.12.4
 ARG NDK_VERSION=r19c
 ARG SDK_INSTALL_PARAMS=platform-tool,build-tools-20.0.0,android-21
@@ -106,6 +102,10 @@ RUN apt-get install -y  qtcreator fonts-wqy-microhei ttf-wqy-zenhei libncurses5 
 RUN echo "/Qt/Tools/QtCreator/bin/qtcreator > /dev/null &" > /usr/local/bin/qtcreator && chmod +x /usr/local/bin/qtcreator
 
 WORKDIR /root/
+
+RUN sed -i 's/deb.debian.org/mirrors.163.com/g' /etc/apt/sources.list
+RUN sed -i 's/security.debian.org/mirrors.163.com/g' /etc/apt/sources.list
+RUN apt-get update
 
 CMD ["/bin/bash"]
 
