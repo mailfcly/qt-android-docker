@@ -1,8 +1,8 @@
 FROM debian:latest
 
 ARG QT_VERSION=5.12.4
-ARG NDK_VERSION=r17c
-ARG SDK_INSTALL_PARAMS=platform-tool,build-tools-20.0.0,android-19
+ARG NDK_VERSION=r19c
+ARG SDK_INSTALL_PARAMS=platform-tool,build-tools-20.0.0,android-21
 ARG QT_PACKAGES="qt,qt.qt5.5124,qt.qt5.5124.gcc_64,qt.qt5.5124.android_armv7"
 
 RUN dpkg --add-architecture i386
